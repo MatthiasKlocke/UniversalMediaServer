@@ -65,8 +65,8 @@ fi
 
 # Provide a means of setting max memory using an environment variable
 if [ -z "$UMS_MAX_MEMORY" ]; then
-    UMS_MAX_MEMORY=1280M
+    UMS_MAX_MEMORY=2048M
 fi
 
 # Execute the JVM
-exec "$JAVA" $JAVA_OPTS -Xmx$UMS_MAX_MEMORY -Xss2048k -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djna.nosys=true -classpath "$PMS_JARS" net.pms.PMS "$@"
+exec "$JAVA" $JAVA_OPTS -Xmx$UMS_MAX_MEMORY --enable-preview --add-modules jdk.incubator.vector --add-opens java.base/sun.nio.ch=ALL-UNNAMED -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Djna.nosys=true -classpath "$PMS_JARS" net.pms.PMS "$@"

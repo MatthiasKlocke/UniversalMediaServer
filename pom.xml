@@ -21,7 +21,7 @@
 	<name>Universal Media Server</name>
 	<packaging>jar</packaging>
 
-	<version>15.6.0-SNAPSHOT</version>
+	<version>15.8.0-SNAPSHOT</version>
 	
 	<url>https://www.universalmediaserver.com/</url>
 	<inceptionYear>2012</inceptionYear>
@@ -55,7 +55,7 @@
 	</issueManagement>
 	<properties>
 		<!-- NSIS needs a version without "-SNAPSHOT" or "-b1" -->
-		<project.version.short>15.6.0</project.version.short>
+		<project.version.short>15.8.0</project.version.short>
 		<project.jre-version>17</project.jre-version>
 		<jgoodies-forms-version>1.9.0</jgoodies-forms-version>
 
@@ -63,6 +63,7 @@
 		<jgoodies-looks-version>2.7.0</jgoodies-looks-version>
 
 		<sevenzip-version>16.02-2.01</sevenzip-version>
+		<logback-version>1.5.38</logback-version>
 
 		<project.encoding>UTF-8</project.encoding>
 		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
@@ -74,13 +75,13 @@
 		<project.binaries-base>https://www.universalmediaserver.com/binaries</project.binaries-base>
 
 		<!-- This MUST be bumped every time binaries (files in /bin) are changed, or the Windows installer will not replace them -->
-		<binary-revision>222</binary-revision>
+		<binary-revision>224</binary-revision>
 
 		<exec-maven-plugin-version>3.6.3</exec-maven-plugin-version>
 		<maven-antrun-plugin-version>3.2.0</maven-antrun-plugin-version>
 		<git-commit-id-plugin-version>9.1.0</git-commit-id-plugin-version>
 		<maven-assembly-plugin-version>3.8.0</maven-assembly-plugin-version>
-		<maven-enforcer-plugin-version>3.6.2</maven-enforcer-plugin-version>
+		<maven-enforcer-plugin-version>3.6.3</maven-enforcer-plugin-version>
 		<maven-resources-plugin-version>3.5.0</maven-resources-plugin-version>
 
 		<!--
@@ -95,9 +96,9 @@
 
 			Check the org.slf4j:slf4j-api version of the other libraries before upgrading
 		-->
-		<slf4j-api-version>2.0.17</slf4j-api-version>
-
-		<surefire-version>3.5.5</surefire-version>
+		<slf4j-api-version>2.0.18</slf4j-api-version>
+		<lucene-version>9.12.3</lucene-version>
+		<surefire-version>3.5.6</surefire-version>
 
 		<!--
 			net.java.dev.jna:jna-platform is shared with
@@ -120,7 +121,7 @@
 		<dependency>
 			<groupId>com.auth0</groupId>
 			<artifactId>java-jwt</artifactId>
-			<version>4.5.1</version>
+			<version>4.6.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>com.fasterxml.jackson.core</groupId>
@@ -146,12 +147,12 @@
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.21.0</version>
+			<version>1.22.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-configuration2</artifactId>
-			<version>2.11.0</version>
+			<version>2.15.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
@@ -191,7 +192,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.21.0</version>
+			<version>2.22.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -218,7 +219,7 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<!-- Check the org.slf4j:slf4j-api version of the other libraries before upgrading -->
-			<version>1.5.32</version>
+			<version>${logback-version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -229,12 +230,12 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-core</artifactId>
-			<version>1.5.32</version>
+			<version>${logback-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-			<version>2.13.2</version>
+			<version>2.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -296,82 +297,82 @@
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-batik</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-bmp</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-core</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-icns</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-iff</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-jpeg</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-hdr</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-metadata</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-pcx</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-pict</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-pnm</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-psd</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-sgi</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-tga</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-tiff</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.twelvemonkeys.imageio</groupId>
 			<artifactId>imageio-webp</artifactId>
-			<version>3.13.1</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.drewnoakes</groupId>
@@ -397,7 +398,7 @@
 			<groupId>com.github.junrar</groupId>
 			<artifactId>junrar</artifactId>
 			<!-- Check the org.slf4j:slf4j-api version of the other libraries before upgrading -->
-			<version>7.5.10</version>
+			<version>7.6.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -435,13 +436,13 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>6.0.3</version>
+			<version>6.1.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>6.0.3</version>
+			<version>6.1.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -488,7 +489,7 @@
 			<!-- Check the org.slf4j:slf4j-api version of the other libraries before upgrading -->
 			<!-- Check the net.java.dev.jna:jna version of the other libraries before upgrading -->
 			<!-- Check the net.java.dev.jna:jna-platform version of the other libraries before upgrading -->
-			<version>6.11.1</version>
+			<version>7.3.2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -513,7 +514,7 @@
 		<dependency>
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>4.0.6</version>
+			<version>4.0.9</version>
 			<exclusions>
 				<exclusion>
 					<groupId>jakarta.activation</groupId>
@@ -534,7 +535,7 @@
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
-			<version>7.0.2</version>
+			<version>7.1.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -577,7 +578,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty.ee10.websocket</groupId>
 			<artifactId>jetty-ee10-websocket-jakarta-server</artifactId>
-			<version>12.1.8</version>
+			<version>12.1.11</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -592,7 +593,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty.ee10</groupId>
 			<artifactId>jetty-ee10-servlet</artifactId>
-			<version>12.1.8</version>
+			<version>12.1.11</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -603,7 +604,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty.http2</groupId>
 			<artifactId>jetty-http2-server</artifactId>
-			<version>12.1.8</version>
+			<version>12.1.11</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -614,7 +615,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-client</artifactId>
-			<version>12.1.8</version>
+			<version>12.1.11</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -625,7 +626,7 @@
 		<dependency>
 			<groupId>de.sfuhrm</groupId>
 			<artifactId>radiobrowser4j</artifactId>
-			<version>3.3.1</version>
+			<version>3.4.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
@@ -647,6 +648,31 @@
 			<groupId>dev.dirs</groupId>
 			<artifactId>directories</artifactId>
 			<version>26</version>
+		</dependency>
+		
+		<!-- xxh3 - fast hash algorithm-->
+		<dependency>
+		    <groupId>net.openhft</groupId>
+		    <artifactId>zero-allocation-hashing</artifactId>
+		    <version>2026.0</version>
+		    <scope>compile</scope>
+	    </dependency>
+		<!-- Lucene search support -->
+		<!-- Attention: Lucene 10+ requires JDK 21+ (i.e. 10.4.0) -->
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-core</artifactId>
+		    <version>${lucene-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-queryparser</artifactId>
+		    <version>${lucene-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-analysis-common</artifactId>
+		    <version>${lucene-version}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -749,7 +775,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${surefire-version}</version>
 					<configuration>
-						<argLine>-Dfile.encoding=${project.encoding}</argLine>
+						<argLine>-Dfile.encoding=${project.encoding} --add-opens java.base/sun.nio.ch=ALL-UNNAMED</argLine>
 					</configuration>
 				</plugin>
 
@@ -925,7 +951,7 @@
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
-				<version>2.0.0</version>
+				<version>2.0.1</version>
 				<configuration>
 					<installDirectory>react-client</installDirectory>
 					<workingDirectory>react-client</workingDirectory>
@@ -1004,6 +1030,10 @@
 									-->
 									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 								</manifest>
+								<manifestEntries>
+									<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+									<Multi-Release>true</Multi-Release>
+								</manifestEntries>
 							</archive>
 						</configuration>
 						<executions>
@@ -1050,9 +1080,9 @@
 										<!-- Download all necessary Windows binaries. Keep the same structure because NSIS expects it that way. -->
 
 										<!-- MediaInfo binaries -->
-										<get src="https://mediaarea.net/download/binary/libmediainfo0/25.10/MediaInfo_DLL_25.10_Windows_i386_WithoutInstaller.zip" dest="${project.basedir}/target/mediainfo-windows-x86.zip" usetimestamp="true" />
+										<get src="https://mediaarea.net/download/binary/libmediainfo0/26.05/MediaInfo_DLL_26.05_Windows_i386_WithoutInstaller.zip" dest="${project.basedir}/target/mediainfo-windows-x86.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/mediainfo-windows-x86.zip" dest="${project.basedir}/target/mediainfo-windows-x86-folder"></unzip>
-										<get src="https://mediaarea.net/download/binary/libmediainfo0/25.10/MediaInfo_DLL_25.10_Windows_x64_WithoutInstaller.zip" dest="${project.basedir}/target/mediainfo-windows-x64.zip" usetimestamp="true" />
+										<get src="https://mediaarea.net/download/binary/libmediainfo0/26.05/MediaInfo_DLL_26.05_Windows_x64_WithoutInstaller.zip" dest="${project.basedir}/target/mediainfo-windows-x64.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/mediainfo-windows-x64.zip" dest="${project.basedir}/target/mediainfo-windows-x64-folder"></unzip>
 										<copy file="${project.basedir}/target/mediainfo-windows-x86-folder/MediaInfo.dll" tofile="${project.binaries}/windows/x86/MediaInfo.dll" overwrite="true" />
 										<copy file="${project.basedir}/target/mediainfo-windows-x64-folder/MediaInfo.dll" tofile="${project.binaries}/windows/x86_64/MediaInfo.dll" overwrite="true" />
@@ -1064,7 +1094,7 @@
 										<get src="${project.binaries-base}/win32/dcrawMS.exe" dest="${project.binaries}/windows/dcrawMS.exe" usetimestamp="true" />
 
 										<get src="${project.binaries-base}/win32/ffmpeg.exe" dest="${project.binaries}/windows/x86/ffmpeg.exe" usetimestamp="true" />
-										<get src="https://github.com/GyanD/codexffmpeg/releases/download/8.1/ffmpeg-8.1-essentials_build.zip" dest="${project.basedir}/target/ffmpeg-x64.zip" usetimestamp="true" />
+										<get src="https://github.com/GyanD/codexffmpeg/releases/download/8.1.2/ffmpeg-8.1.2-essentials_build.zip" dest="${project.basedir}/target/ffmpeg-x64.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/ffmpeg-x64.zip" dest="${project.basedir}/target/ffmpeg-x64-folder">
 											<cutdirsmapper dirs="1" />
 										</unzip>
@@ -1109,11 +1139,11 @@
 										<get src="${project.binaries-base}/win32/mplayer/config" dest="${project.binaries}/windows/mplayer/config" usetimestamp="true" />
 										<get src="${project.binaries-base}/win32/mplayer/input.conf" dest="${project.binaries}/windows/mplayer/input.conf" usetimestamp="true" />
 										<get src="${project.binaries-base}/win32/mplayer/subfont.ttf" dest="${project.binaries}/windows/mplayer/subfont.ttf" usetimestamp="true" />
-										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.18%2B10/bellsoft-jdk17.0.18+10-windows-amd64.zip" dest="${project.basedir}/target/jre${project.jre-version}-x64.zip" usetimestamp="true" />
+										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.19%2B11/bellsoft-jre17.0.19+11-windows-amd64.zip" dest="${project.basedir}/target/jre${project.jre-version}-x64.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/jre${project.jre-version}-x64.zip" dest="${project.binaries}/windows/x86_64/jre${project.jre-version}">
 											<cutdirsmapper dirs="1" />
 										</unzip>
-										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.18%2B10/bellsoft-jdk17.0.18+10-windows-i586.zip" dest="${project.basedir}/target/jre${project.jre-version}-x86.zip" usetimestamp="true" />
+										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.19%2B11/bellsoft-jre17.0.19+11-windows-i586.zip" dest="${project.basedir}/target/jre${project.jre-version}-x86.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/jre${project.jre-version}-x86.zip" dest="${project.binaries}/windows/x86/jre${project.jre-version}">
 											<cutdirsmapper dirs="1" />
 										</unzip>
@@ -1414,6 +1444,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1434,6 +1468,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1552,6 +1590,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1572,6 +1614,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1690,6 +1736,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1710,6 +1760,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1827,6 +1881,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1847,6 +1905,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1883,7 +1945,7 @@
 										<get src="${project.binaries-base}/linux/x86/tsMuxeR" dest="${project.binaries}/linux/x86/tsMuxeR" usetimestamp="true" />
 										<get src="${project.binaries-base}/linux/x86/tsMuxeR_licence.txt" dest="${project.binaries}/linux/x86/tsMuxeR_license.txt" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp" dest="${project.binaries}/linux/x86/youtube-dl" usetimestamp="true" />
-										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.18%2B10/bellsoft-jre17.0.18+10-linux-i586.tar.gz" dest="${project.binaries}/linux/x86/jre${project.jre-version}.tar.gz" usetimestamp="true" />
+										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.19%2B11/bellsoft-jre17.0.19+11-linux-i586.tar.gz" dest="${project.binaries}/linux/x86/jre${project.jre-version}.tar.gz" usetimestamp="true" />
 										<untar src="${project.binaries}/linux/x86/jre${project.jre-version}.tar.gz" dest="${project.binaries}/linux/x86/jre${project.jre-version}" compression="gzip">
 											<cutdirsmapper dirs="1" />
 										</untar>
@@ -1972,6 +2034,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -1992,6 +2058,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2028,7 +2098,7 @@
 										<get src="${project.binaries-base}/linux/x86_64/tsMuxeR" dest="${project.binaries}/linux/x86_64/tsMuxeR" usetimestamp="true" />
 										<get src="${project.binaries-base}/linux/x86_64/tsMuxeR_licence.txt" dest="${project.binaries}/linux/x86_64/tsMuxeR_license.txt" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_linux" dest="${project.binaries}/linux/x86_64/youtube-dl" usetimestamp="true" />
-										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.18%2B10/bellsoft-jre17.0.18+10-linux-amd64.tar.gz" dest="${project.binaries}/linux/x86_64/jre${project.jre-version}.tar.gz" usetimestamp="true" />
+										<get src="https://github.com/bell-sw/Liberica/releases/download/17.0.19%2B11/bellsoft-jre17.0.19+11-linux-amd64.tar.gz" dest="${project.binaries}/linux/x86_64/jre${project.jre-version}.tar.gz" usetimestamp="true" />
 										<untar src="${project.binaries}/linux/x86_64/jre${project.jre-version}.tar.gz" dest="${project.binaries}/linux/x86_64/jre${project.jre-version}" compression="gzip">
 											<cutdirsmapper dirs="1" />
 										</untar>
@@ -2056,7 +2126,7 @@
 
 		<!--
 			macOS 10.15 (Catalina) onwards
-			Note: This does not make the disk image (.dmg), see the wiki for instructions https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/How-to-build-UMS#building-the-macos-disk-image
+			Note: This does not make the disk image (.dmg), see the Knowledge Base for instructions https://support.universalmediaserver.com/development/build-instructions
 		-->
 		<profile>
 			<id>macos</id>
@@ -2143,7 +2213,7 @@
 										<get src="${project.binaries-base}/osx/libmediainfo.dylib" dest="${project.binaries}/libmediainfo.dylib" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_macos" dest="${project.binaries}/osx/youtube-dl" usetimestamp="true" />
 										<get src="${project.binaries-base}/MediaInfo-License.html" dest="${project.binaries}/MediaInfo-License.html" usetimestamp="true" />
-										<get src="https://evermeet.cx/ffmpeg/ffmpeg-8.1.zip" dest="${project.basedir}/target/ffmpeg-macos-1015.zip" usetimestamp="true" />
+										<get src="https://evermeet.cx/ffmpeg/ffmpeg-8.1.2.zip" dest="${project.basedir}/target/ffmpeg-macos-1015.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/ffmpeg-macos-1015.zip" dest="${project.basedir}/target/ffmpeg-macos-1015">
 											<cutdirsmapper dirs="1" />
 										</unzip>
@@ -2235,6 +2305,8 @@
 											<option value="-Xss16M"/>
 											<option value="-Dfile.encoding=${project.encoding}"/>
 											<option value="-Djava.net.preferIPv4Stack=true"/>
+											<option value="--add-opens"/>
+											<option value="java.base/sun.nio.ch=ALL-UNNAMED"/>
 											<option value="-Xdock:name=${project.name.short}"/>
 										</bundleapp>
 									</target>
@@ -2262,6 +2334,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2284,6 +2360,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2381,7 +2461,7 @@
 										<get src="${project.binaries-base}/osx/libmediainfo.dylib" dest="${project.binaries}/libmediainfo.dylib" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_macos" dest="${project.binaries}/osx/youtube-dl" usetimestamp="true" />
 										<get src="${project.binaries-base}/MediaInfo-License.html" dest="${project.binaries}/MediaInfo-License.html" usetimestamp="true" />
-										<get src="https://evermeet.cx/ffmpeg/ffmpeg-8.0.1.zip" dest="${project.basedir}/target/ffmpeg-macos-1015.zip" usetimestamp="true" />
+										<get src="https://evermeet.cx/ffmpeg/ffmpeg-8.1.2.zip" dest="${project.basedir}/target/ffmpeg-macos-1015.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/ffmpeg-macos-1015.zip" dest="${project.basedir}/target/ffmpeg-macos-1015">
 											<cutdirsmapper dirs="1" />
 										</unzip>
@@ -2471,6 +2551,8 @@
 											<option value="-Xss16M"/>
 											<option value="-Dfile.encoding=${project.encoding}"/>
 											<option value="-Djava.net.preferIPv4Stack=true"/>
+											<option value="--add-opens"/>
+											<option value="java.base/sun.nio.ch=ALL-UNNAMED"/>
 											<option value="-Xdock:name=${project.name.short}"/>
 										</bundleapp>
 									</target>
@@ -2498,6 +2580,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2520,6 +2606,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2531,7 +2621,7 @@
 
 		<!--
 			macOS on ARM (Apple Silicon) processors
-			Note: This does not make the disk image (.dmg), see the wiki for instructions https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/How-to-build-UMS#building-the-macos-disk-image
+			Note: This does not make the disk image (.dmg), see the Knowledge Base for instructions https://support.universalmediaserver.com/development/build-instructions
 		-->
 		<profile>
 			<id>macos-arm</id>
@@ -2710,6 +2800,8 @@
 											<option value="-Xss16M"/>
 											<option value="-Dfile.encoding=${project.encoding}"/>
 											<option value="-Djava.net.preferIPv4Stack=true"/>
+											<option value="--add-opens"/>
+											<option value="java.base/sun.nio.ch=ALL-UNNAMED"/>
 											<option value="-Xdock:name=${project.name.short}"/>
 										</bundleapp>
 									</target>
@@ -2737,6 +2829,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2759,6 +2855,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2857,7 +2957,7 @@
 										<get src="${project.binaries-base}/osx/libmediainfo.dylib" dest="${project.binaries}/libmediainfo.dylib" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_macos" dest="${project.binaries}/osx/youtube-dl" usetimestamp="true" />
 										<get src="${project.binaries-base}/MediaInfo-License.html" dest="${project.binaries}/MediaInfo-License.html" usetimestamp="true" />
-										<get src="https://www.osxexperts.net/ffmpeg80arm.zip" dest="${project.basedir}/target/ffmpeg-macos-arm.zip" usetimestamp="true" />
+										<get src="https://www.osxexperts.net/ffmpeg81arm.zip" dest="${project.basedir}/target/ffmpeg-macos-arm.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/ffmpeg-macos-arm.zip" dest="${project.basedir}/target/ffmpeg-macos-arm"></unzip>
 
 										<!-- Copy FFmpeg binary -->
@@ -2946,6 +3046,8 @@
 											<option value="-Xss16M"/>
 											<option value="-Dfile.encoding=${project.encoding}"/>
 											<option value="-Djava.net.preferIPv4Stack=true"/>
+											<option value="--add-opens"/>
+											<option value="java.base/sun.nio.ch=ALL-UNNAMED"/>
 											<option value="-Xdock:name=${project.name.short}"/>
 										</bundleapp>
 									</target>
@@ -2973,6 +3075,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -2995,6 +3101,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -3006,7 +3116,7 @@
 
 		<!--
 			macOS pre-10.15 (Catalina)
-			Note: This does not make the disk image (.dmg), see the wiki for instructions https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/How-to-build-UMS#building-the-macos-disk-image
+			Note: This does not make the disk image (.dmg), see the Knowledge Base for instructions https://support.universalmediaserver.com/development/build-instructions
 		-->
 		<profile>
 			<id>macos-pre1015</id>
@@ -3089,7 +3199,12 @@
 
 										<!-- Download binaries -->
 										<get src="${project.binaries-base}/osx/dcraw" dest="${project.binaries}/osx/dcraw" usetimestamp="true" />
-										<get src="${project.binaries-base}/osx/ffmpeg" dest="${project.binaries}/osx/ffmpeg" usetimestamp="true" />
+										<get src="https://www.osxexperts.net/ffmpeg80intel.zip" dest="${project.basedir}/target/ffmpeg-macos-intel.zip" usetimestamp="true" />
+										<unzip src="${project.basedir}/target/ffmpeg-macos-intel.zip" dest="${project.basedir}/target/ffmpeg-macos-intel"></unzip>
+
+										<!-- Copy FFmpeg binary -->
+										<copy file="${project.basedir}/target/ffmpeg-macos-intel/ffmpeg" tofile="${project.binaries}/osx/ffmpeg" overwrite="true" />
+
 										<get src="${project.binaries-base}/osx/flac" dest="${project.binaries}/osx/flac" usetimestamp="true" />
 										<get src="${project.binaries-base}/osx/libmediainfo.dylib" dest="${project.binaries}/libmediainfo.dylib" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_macos" dest="${project.binaries}/osx/youtube-dl" usetimestamp="true" />
@@ -3176,6 +3291,8 @@
 											<option value="-Xss16M"/>
 											<option value="-Dfile.encoding=${project.encoding}"/>
 											<option value="-Djava.net.preferIPv4Stack=true"/>
+											<option value="--add-opens"/>
+											<option value="java.base/sun.nio.ch=ALL-UNNAMED"/>
 											<option value="-Xdock:name=${project.name.short}"/>
 										</bundleapp>
 									</target>
@@ -3203,6 +3320,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -3225,6 +3346,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -3236,7 +3361,7 @@
 
 		<!--
 			macOS pre-10.15 (Catalina) on CI
-			Note: This does not make the disk image (.dmg), see the wiki for instructions https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/How-to-build-UMS#building-the-macos-disk-image
+			Note: This does not make the disk image (.dmg), see the Knowledge Base for instructions https://support.universalmediaserver.com/development/build-instructions
 		-->
 		<profile>
 			<id>macos-pre1015-ci</id>
@@ -3319,7 +3444,12 @@
 
 										<!-- Download binaries -->
 										<get src="${project.binaries-base}/osx/dcraw" dest="${project.binaries}/osx/dcraw" usetimestamp="true" />
-										<get src="${project.binaries-base}/osx/ffmpeg" dest="${project.binaries}/osx/ffmpeg" usetimestamp="true" />
+										<get src="https://www.osxexperts.net/ffmpeg80intel.zip" dest="${project.basedir}/target/ffmpeg-macos-intel.zip" usetimestamp="true" />
+										<unzip src="${project.basedir}/target/ffmpeg-macos-intel.zip" dest="${project.basedir}/target/ffmpeg-macos-intel"></unzip>
+
+										<!-- Copy FFmpeg binary -->
+										<copy file="${project.basedir}/target/ffmpeg-macos-intel/ffmpeg" tofile="${project.binaries}/osx/ffmpeg" overwrite="true" />
+
 										<get src="${project.binaries-base}/osx/flac" dest="${project.binaries}/osx/flac" usetimestamp="true" />
 										<get src="${project.binaries-base}/osx/libmediainfo.dylib" dest="${project.binaries}/libmediainfo.dylib" usetimestamp="true" />
 										<get src="https://github.com/yt-dlp/yt-dlp/releases/download/2026.03.17/yt-dlp_macos" dest="${project.binaries}/osx/youtube-dl" usetimestamp="true" />
@@ -3403,6 +3533,8 @@
 											<option value="-Xss16M"/>
 											<option value="-Dfile.encoding=${project.encoding}"/>
 											<option value="-Djava.net.preferIPv4Stack=true"/>
+											<option value="--add-opens"/>
+											<option value="java.base/sun.nio.ch=ALL-UNNAMED"/>
 											<option value="-Xdock:name=${project.name.short}"/>
 										</bundleapp>
 									</target>
@@ -3430,6 +3562,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -3452,6 +3588,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -3500,6 +3640,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -3699,6 +3843,10 @@
 									-->
 									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 								</manifest>
+								<manifestEntries>
+									<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+									<Multi-Release>true</Multi-Release>
+								</manifestEntries>
 							</archive>
 						</configuration>
 						<executions>
@@ -3837,6 +3985,10 @@
 									-->
 									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 								</manifest>
+								<manifestEntries>
+									<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+									<Multi-Release>true</Multi-Release>
+								</manifestEntries>
 							</archive>
 						</configuration>
 						<executions>
@@ -3975,6 +4127,10 @@
 									-->
 									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 								</manifest>
+								<manifestEntries>
+									<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+									<Multi-Release>true</Multi-Release>
+								</manifestEntries>
 							</archive>
 						</configuration>
 						<executions>
@@ -4088,6 +4244,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -4108,6 +4268,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -4192,7 +4356,7 @@
 										<mkdir dir="${project.binaries}/osx" />
 
 										<get src="${project.binaries-base}/osx/libmediainfo.dylib" dest="${project.basedir}/libmediainfo.dylib" usetimestamp="true" />
-										<get src="https://evermeet.cx/ffmpeg/ffmpeg-8.1.zip" dest="${project.basedir}/target/ffmpeg-macos-1015.zip" usetimestamp="true" />
+										<get src="https://evermeet.cx/ffmpeg/ffmpeg-8.1.2.zip" dest="${project.basedir}/target/ffmpeg-macos-1015.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/ffmpeg-macos-1015.zip" dest="${project.basedir}/target/ffmpeg-macos-1015">
 											<cutdirsmapper dirs="1" />
 										</unzip>
@@ -4228,12 +4392,12 @@
 										<mkdir dir="${project.binaries}/bin" />
 
 										<!-- MediaInfo binary -->
-										<get src="https://mediaarea.net/download/binary/libmediainfo0/25.10/MediaInfo_DLL_25.10_Windows_x64_WithoutInstaller.zip" dest="${project.basedir}/target/mediainfo-windows-x64.zip" usetimestamp="true" />
+										<get src="https://mediaarea.net/download/binary/libmediainfo0/26.05/MediaInfo_DLL_26.05_Windows_x64_WithoutInstaller.zip" dest="${project.basedir}/target/mediainfo-windows-x64.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/mediainfo-windows-x64.zip" dest="${project.basedir}/target/mediainfo-windows-x64-folder"></unzip>
 										<copy file="${project.basedir}/target/mediainfo-windows-x64-folder/MediaInfo.dll" tofile="${project.binaries}/bin/MediaInfo.dll" overwrite="true" />
 
 										<!-- FFmpeg binary -->
-										<get src="https://github.com/GyanD/codexffmpeg/releases/download/8.1/ffmpeg-8.1-essentials_build.zip" dest="${project.basedir}/target/ffmpeg-x64.zip" usetimestamp="true" />
+										<get src="https://github.com/GyanD/codexffmpeg/releases/download/8.1.2/ffmpeg-8.1.2-essentials_build.zip" dest="${project.basedir}/target/ffmpeg-x64.zip" usetimestamp="true" />
 										<unzip src="${project.basedir}/target/ffmpeg-x64.zip" dest="${project.basedir}/target/ffmpeg-x64-folder">
 											<cutdirsmapper dirs="1" />
 										</unzip>
@@ -4341,6 +4505,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
@@ -4480,6 +4648,10 @@
 											<mainClass>${project.mainclass}</mainClass>
 											<addDefaultImplementationEntries>true</addDefaultImplementationEntries> <!-- see above for documentation -->
 										</manifest>
+										<manifestEntries>
+											<!-- Preserve Lucene's Multi-Release JAR so java.lang.foreign providers (e.g. MemorySegmentIndexInputProvider) are found on JDK 21+ inside the fat jar. -->
+											<Multi-Release>true</Multi-Release>
+										</manifestEntries>
 									</archive>
 								</configuration>
 							</execution>
